@@ -1,0 +1,201 @@
+import React, { useEffect, useState } from 'react'
+import ReactModal from 'react-modal';
+import { useNavigate, useParams } from 'react-router-dom';
+import axios from 'axios';
+import Swal from 'sweetalert2';
+
+ReactModal.setAppElement('#root');
+
+const EditPengampu= () => {
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const [isOpen, setIsOpen] = useState(true);
+  const [showDosen, setShowDosen]= useState([]);
+  const [showMatkul, setShowMatkul]= useState([]);
+  const [showKelas, setShowKelas]= useState([]);
+  const [dataDosen, setDataDosen] = useState([]);
+  const [dataMatkul, setDataMatkul] = useState([]);
+  const [dataKelas, setDataKelas] = useState([]);
+
+  const [selectedDosenId, setSelectedDosenId] = useState('');
+  const [selectedMatkulId, setSelectedMatkulId] = useState('');
+  const [selectedKelasId, setSelectedKelasId] = useState('');
+  
+  const fetchDataPengampu = async () => {
+    try {
+      const response = await axios.get(`/pengampu/${id}`);
+      const data = response.data.data;
+      setShowMatkul(data.matakuliah);
+      setShowKelas(data.kelas);
+      setShowDosen(data.dosen);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const getDataDosen = async() =>{
+    try{
+        const response = await axios.get(`/dosen`);
+        const data = response.data.data;
+        setDataDosen(data);
+    }
+    catch(error) {
+        console.error(error);
+    }
+  }
+
+  const getDataMatkul = async() =>{
+    try{
+        const response = await axios.get(`/matakuliah`);
+        const data = response.data.data;
+        data.sort((a, b) => a.kode_matkul.localeCompare(b.kode_matkul));
+        setDataMatkul(data);
+    }
+    catch(error) {
+        console.error(error);
+    }
+  }
+
+  const getDataKelas = async() =>{
+    try{
+        const response = await axios.get(`/kelas`);
+        const data = response.data.data;
+        setDataKelas(data);
+    }
+    catch(error) {
+        console.error(error);
+    }
+  }
+
+  useEffect(() => {
+    fetchDataPengampu();
+  }, [id]);
+
+  useEffect(()=>{
+    getDataDosen();
+    getDataKelas();
+    getDataMatkul();
+  },[]);
+
+  const closeModal = () => {
+    setIsOpen(false);
+    navigate(`/page/admin/pengampu?dataChanged=true`);
+  };
+
+  const closeModalOnOverlayClick = (event) => {
+    if (event.target === event.currentTarget) {
+      closeModal();
+    }
+  };
+
+  const EditPengampuHandler = async (e) =>  {
+    e.preventDefault();
+  
+    const formData = new FormData();
+    formData.append('dosen_id', selectedDosenId);
+    formData.append('matakuliah_id', selectedMatkulId);
+    formData.append('kelas_id', selectedKelasId);
+    formData.append('_method', "put");
+
+    try {
+      await axios.post(`/pengampu/${id}`, formData);
+
+      Swal.fire({
+        title: "Berhasil!",
+        text: "Dosen berhasil ditambahkan",
+        icon: "success",
+        showConfirmButton: false,
+        timer: 1000,
+        willClose: () => {
+          closeModal();
+        },
+      });
+    } catch (error) {
+      Swal.fire({
+        title: "Gagal!",
+        text: error,
+        icon: "error",
+        showConfirmButton: false,
+        timer: 1500,
+        willClose: () => {
+          closeModal();
+        },
+      });    }
+
+    }
+
+  return (
+    <div>
+        <ReactModal
+          isOpen={isOpen}
+          onRequestClose={closeModal}
+          contentLabel="Contoh Modal"
+          className="custom-modal"
+          overlayClassName="custom-modal-overlay"
+        >
+          <div className="custom-modal" onClick={closeModalOnOverlayClick}>
+            <div className="modal-content w-[387px] App">
+              <form onSubmit={EditPengampuHandler} className="">
+                <div className="mb-6 ">
+                  <label htmlFor="nama-dosen" className=" block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama Dosen</label>
+                  <select value={selectedDosenId} onChange={(e) => setSelectedDosenId(e.target.value)} id="nama-dosen" className=" border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    <option value={showDosen.id} selected hidden>{showDosen.name}</option>
+                    {dataDosen.map(optionDosen =>(
+                      <option key={optionDosen.id} value={optionDosen.id}>
+                        {optionDosen.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <div className="mb-6 ">
+                  <label htmlFor="kode-matkul" className=" block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kode Mata Kuliah</label>
+                  <select value={selectedMatkulId} onChange={(e) => setSelectedMatkulId(e.target.value)} id="kode-matkul" className=" border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    <option value={showMatkul.id} selected hidden>{showMatkul.kode_matkul}  -  {showMatkul.kode_matkul}</option>
+                    {dataMatkul.map(optionMatkul =>(
+                      <option key={optionMatkul.id} value={optionMatkul.id}>
+                        <div className='flex justify-between gap-2'>
+                          <div>{optionMatkul.kode_matkul}</div>
+                          <div> - </div>
+                          <div>{optionMatkul.nama}</div>
+                        </div>
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <div className="mb-6 ">
+                  <label htmlFor="kelas" className=" block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kelas</label>
+                  <select value={selectedKelasId} onChange={(e) => setSelectedKelasId(e.target.value)} id="kelas" className=" border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    <option value={showKelas.id} selected hidden>{showKelas.nama}</option>
+                    {dataKelas.map(optionKelas =>(
+                      <option key={optionKelas.id} value={optionKelas.id}>
+                        {optionKelas.nama}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <div className="flex justify-center gap-1">
+                    <div className="">
+                        <button type="button" onClick={closeModal} className="w-[88px] h-[36px] hover:text-white hover:bg-red-600 rounded-lg text-sm px-4 mb-2 button-negative">
+                            Batal
+                        </button>
+                    </div>
+                    <div className="">
+                        <button type="submit" className="w-[88px] h-[36px] text-white bg-[#03965C] hover:bg-green-600 font-medium rounded-lg text-sm px-4 mb-2">
+                            Simpan
+                        </button>
+                    </div>
+                </div>
+
+              </form>
+              
+            </div>
+          </div>
+        </ReactModal>
+    </div>
+  )
+}
+
+export default EditPengampu;

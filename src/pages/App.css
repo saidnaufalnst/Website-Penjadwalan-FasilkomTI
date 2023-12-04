@@ -1,0 +1,171 @@
+@font-face {
+    font-family: 'Poppins';
+    src: url('../assets/fonts/PoppinsRegular-B2Bw.otf');
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('../assets/fonts/Inter-VariableFont_slnt\,wght.ttf');
+}
+
+.App{
+    font-family: 'Poppins';
+}
+
+.font-form{
+    font-family: 'Inter';
+}
+
+.box-hover-sidenav{
+    width: 8px;
+    height: 45px;
+    border-radius: 15px;
+}
+
+.side-navbar{
+    filter: drop-shadow(0 0px 5px rgb(0 0 0 / 0.5));
+}
+
+.table-style{
+    filter: drop-shadow(0 2px 2px rgb(0 0 0 / 0.1));
+}
+
+.line-nav{
+    height: 3px;
+    width: 100%;
+    background-color: #D9D9D9;
+}
+
+.instructions {
+    font-size: 0.75rem;
+    border-radius: 0.5rem;
+    background: #000;
+    color: #fff;
+    padding: 0.25rem;
+    position: relative;
+    bottom: -10px;
+  }  
+
+.off-screen{
+    position: absolute;
+    left: -9999px;
+    border-color: #000;
+}
+
+.hide {
+    display: none;
+}
+
+.valid {
+color: limegreen;
+margin-left: 0.25rem;
+}
+
+.invalid {
+color: red;
+margin-left: 0.25rem;
+}
+
+a.active{
+    background: rgba(146, 255, 183, 0.32);
+}
+
+.nav-reservasi-user.active{
+    background: #03965C;
+    color: white;
+}
+
+.side-nav-scroll-top{
+    overflow: hidden;
+}
+
+.side-nav-scroll{
+    overflow: auto;
+}
+
+.side-nav-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.custom-modal {
+    background-color: rgba(0, 0, 0, 0.219); /* Latar belakang semi-transparan */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Z-index tinggi agar modal muncul di atas konten lain */
+  }
+  
+  .modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  }
+
+.button-negative{
+    color: rgb(231, 0, 0);
+    border: 2px solid rgb(231, 0, 0);
+}
+
+.button-positive{
+    color: #03965C;
+    border: 2px solid #03965C;
+}
+
+.card{
+    overflow: auto;
+}
+
+.card::-webkit-scrollbar{
+    display: none;
+}
+
+.item-first{
+    height: 50px;
+    color: #ABABAB;
+    padding-top: 15px;
+}
+
+.item-first h3 {
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.item-first span {
+    font-size: 10px;
+    font-weight:lighter;
+}
+
+.item-second{
+    height: 70px;
+    color: #ABABAB;
+    padding-top: 20px;
+}
+
+.item-second h3 {
+    font-size: 35px;
+    font-weight: 600;
+}
+
+.item-second span {
+    font-size: 12px;
+    font-weight:lighter;
+}
+
+.home::-webkit-scrollbar {
+    display: none;
+}
+
+.side-navbar .overflow-y-auto::-webkit-scrollbar {
+    display: none;
+}
+
+.box-info-semester{
+    width: 15px;
+    height: 15px;
+}
