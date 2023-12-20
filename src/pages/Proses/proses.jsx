@@ -19,7 +19,7 @@ const Proses = () => {
             <div className='bg-[#F2F2EA] sticky top-0'>
               <Kalender currentDate={currentDate} onDateChange={handleDateChange}/>
             </div>
-              <JadwalKuliah currentDate={currentDate} />
+              <JadwalKuliah currentDate={currentDate}/>
           </div>
       </div>
       ) : <Outlet/>}

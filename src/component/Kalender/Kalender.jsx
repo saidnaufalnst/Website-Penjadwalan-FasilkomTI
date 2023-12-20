@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { format, addDays, subDays } from 'date-fns';
 import { id } from 'date-fns/locale';
 import ButtonLogin from '../Button/ButtonLogin';
@@ -11,6 +11,7 @@ import ReactModal from 'react-modal';
 
 const Kalender = ({ currentDate, onDateChange }) => {
   const location = useLocation();
+  const navigate = useNavigate();
   const isLandingPage = location.pathname === '/'; 
   const isProsesPage = location.pathname === '/page/admin/proses'; 
   const [nowDate, setNowDate] = useState(new Date());
@@ -35,37 +36,59 @@ const closeModal = () => {
     }
   };
   
-  const handleProses = () => {
-    if (confirmHandler === randomCode){
-      setloading(true);
-      axios.get(`http://127.0.0.1:9000/api/proses`).then(() => {
-        setloading(false);
-        Swal.fire({
-          title: "Berhasil!",
-          text: "Data berhasil dihapus",
-          icon: "success",
-          showConfirmButton: false,
-          timer: 1000,
-          willClose: () => {
+let isProcessOngoing = false;
+
+const handleProses = () => {
+  if (confirmHandler === randomCode) {
+    setloading(true);
+    isProcessOngoing = true;
+
+    window.onbeforeunload = () => {
+      if (isProcessOngoing) {
+        return "Proses sedang berlangsung. Apakah Anda yakin ingin meninggalkan halaman?";
+      }
+    };
+
+    axios.get(`http://127.0.0.1:9000/api/proses`).then(() => {
+      setloading(false);
+
+      // Remove the event listener as the process is complete
+      window.onbeforeunload = null;
+
+      Swal.fire({
+        title: "Berhasil!",
+        text: "Jadwal berhasil diproses",
+        icon: "success",
+        showConfirmButton: false,
+        timer: 1000,
+        willClose: () => {
           closeModal();
-          },
+          navigate("/page/admin/proses");
+        },
       });
-      })
-      .catch((error) => {
-        setloading(false);
-        Swal.fire({
-          title: 'Gagal!',
-          text: error,
-          icon: 'error',
-          showConfirmButton: false,
-          timer: 1500,
-          willClose: () => {
-            closeModal();
-          },
-        });
+
+      // Reset the flag after the process is complete
+      isProcessOngoing = false;
+    })
+    .catch((error) => {
+      setloading(false);
+      window.onbeforeunload = null;
+
+      Swal.fire({
+        title: 'Gagal!',
+        text: error,
+        icon: 'error',
+        showConfirmButton: false,
+        timer: 1500,
+        willClose: () => {
+          closeModal();
+        },
       });
-    }
-  };
+      isProcessOngoing = false;
+    });
+  }
+};
+
   
   const generateRandomCode =() => {
     const code = Math.floor(1000 + Math.random() * 9000).toString();
