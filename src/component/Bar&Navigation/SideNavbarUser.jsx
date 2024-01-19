@@ -22,7 +22,7 @@ const SideNavbarUser = () => {
                     <div className="flex justify-center mb-6 sticky top-0 bg-[#03965C]">
                         <img src={logo_fasilkom} alt="" className="w-[51px] h-[51px]"/>
                         <div className="grid grid-rows-2 items-center">
-                            <span className="text-white px-2 font-semibold">Fasilkom-TI</span>
+                            <span className="text-white px-2 font-semibold">Ilmu Komputer</span>
                             <span className="text-white text-sm px-2 font-medium">Sistem Penjadwalan</span>
                         </div>
                     </div>

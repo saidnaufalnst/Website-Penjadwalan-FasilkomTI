@@ -6,7 +6,7 @@ const Toolbar = () => {
     <div className="bg-[#03965C] w-full h-[76px]">
         <div className="flex justify-center h-full items-center">
             <img src={logo_fasilkom} alt="" className="w-[51px] h-[51px]"/>
-            <span className="text-white px-2 font-semibold">Fasilkom-TI</span>
+            <span className="text-white px-2 font-semibold">Ilmu Komputer</span>
         </div>
     </div>
   )
