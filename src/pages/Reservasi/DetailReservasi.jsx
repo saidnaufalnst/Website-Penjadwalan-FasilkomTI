@@ -117,82 +117,82 @@ const DetailReservasi = () => {
           <div className="modal-content w-[387px] App">
             <form onSubmit={confirmReservasiHandler}>
                 <div className="mb-6 ">
-                  <label htmlFor="nama-dosen" className=" block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama Dosen</label>
+                  <label htmlFor="nama-dosen" className=" block mb-2 text-sm font-medium text-gray-900 ">Nama Dosen</label>
                   <input 
                     type="text" 
                     id="nama-dosen" 
                     autoComplete='off'
                     value={dataDosen}
                     disabled
-                    className="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+                    className="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " required />
                 </div>
 
                 <div className="flex gap-5">
                   <div className="mb-6 ">
-                    <label htmlFor="kelas" className=" block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kelas</label>
+                    <label htmlFor="kelas" className=" block mb-2 text-sm font-medium text-gray-900 ">Kelas</label>
                     <input 
                       type="text" 
                       id="kelas" 
                       autoComplete='off'
                       value={dataKelas}
                       disabled
-                      className="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+                      className="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " required />
                   </div>
 
                   <div className="mb-6 ">
-                    <label htmlFor="semester" className=" block mb-2 text-sm font-medium text-gray-900 dark:text-white">Semester</label>
+                    <label htmlFor="semester" className=" block mb-2 text-sm font-medium text-gray-900 ">Semester</label>
                     <input 
                       type="text" 
                       id="semester" 
                       autoComplete='off'
                       value={dataSemester}
                       disabled
-                      className="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+                      className="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " required />
                   </div>
                 </div>
 
                 <div className="mb-6 ">
-                  <label htmlFor="ruangan" className=" block mb-2 text-sm font-medium text-gray-900 dark:text-white">Ruangan</label>
+                  <label htmlFor="ruangan" className=" block mb-2 text-sm font-medium text-gray-900 ">Ruangan</label>
                   <input 
                     type="text" 
                     id="ruangan" 
                     autoComplete='off'
                     value={dataRuangan}
                     disabled
-                    className="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+                    className="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " required />
                 </div>
 
                 <div className="mb-6 ">
-                  <label htmlFor="jam" className=" block mb-2 text-sm font-medium text-gray-900 dark:text-white">Jam</label>
+                  <label htmlFor="jam" className=" block mb-2 text-sm font-medium text-gray-900 ">Jam</label>
                   <input 
                     type="text" 
                     id="jam" 
                     autoComplete='off'
                     value={dataJam.awal + "-" + dataJam.akhir}
                     disabled
-                    className="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+                    className="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " required />
                 </div>
 
                 <div className="mb-6 ">
-                  <label htmlFor="hari" className=" block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tanggal</label>
+                  <label htmlFor="hari" className=" block mb-2 text-sm font-medium text-gray-900 ">Tanggal</label>
                   <input 
                     type="text" 
                     id="hari" 
                     autoComplete='off'
                     value={dataHari + ", " + dataTanggal}
                     disabled
-                    className="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+                    className="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " required />
                 </div>
 
                 <div className="mb-6 ">
-                  <label htmlFor="hari" className=" block mb-2 text-sm font-medium text-gray-900 dark:text-white">Mata Kuliah</label>
+                  <label htmlFor="hari" className=" block mb-2 text-sm font-medium text-gray-900 ">Mata Kuliah</label>
                   <input 
                     type="text" 
                     id="hari" 
                     autoComplete='off'
                     value={dataMatkul}
                     disabled
-                    className="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+                    className="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " required />
                 </div>
                 
                 <div>

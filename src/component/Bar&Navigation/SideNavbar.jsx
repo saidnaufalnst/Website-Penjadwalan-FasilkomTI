@@ -216,7 +216,7 @@ const SideNavbar = () => {
                     <div className='modal-content App'>
                     <form onSubmit={resetHandler}>
                         <div className="mb-6 ">
-                        <label htmlFor="nama-dosen" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                        <label htmlFor="nama-dosen" className="block mb-2 text-sm font-medium text-gray-900 ">
                             <span className='flex justify-center'>Apakah anda yakin reset semua data?</span>
                             <span className='text-[11px] flex justify-center'>Masukkan kode ini untuk melanjutkan: {randomCode}</span>
                         </label>
@@ -226,7 +226,7 @@ const SideNavbar = () => {
                             autoComplete='off'
                             value={confirmReset}
                             onChange={(e) => setConfirmReset(e.target.value)} 
-                            className="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+                            className="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
                         </div>
 
                         <div className="flex justify-center gap-3">

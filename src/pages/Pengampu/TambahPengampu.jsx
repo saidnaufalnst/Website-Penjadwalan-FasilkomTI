@@ -59,6 +59,7 @@ const TambahPengampu= () => {
     try{
         const response = await axios.get(`/kelas`);
         const data = response.data.data;
+        data.sort((a, b) => a.semester - b.semester);
         setDataKelas(data);
     }
     catch(error) {
@@ -114,8 +115,8 @@ const TambahPengampu= () => {
             <div className="modal-content w-[387px] App">
               <form onSubmit={inputPengampuHandler} className="">
                 <div className="mb-6 ">
-                  <label htmlFor="nama-dosen" className=" block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama Dosen</label>
-                  <select value={selectedDosenId} onChange={(e) => setSelectedDosenId(e.target.value)} id="nama-dosen" className=" border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                  <label htmlFor="nama-dosen" className=" block mb-2 text-sm font-medium text-gray-900">Nama Dosen</label>
+                  <select value={selectedDosenId} onChange={(e) => setSelectedDosenId(e.target.value)} id="nama-dosen" className=" border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                     <option value="" disabled selected hidden>-Pilih-</option>
                     {dataDosen.map(optionDosen =>(
                       <option key={optionDosen.id} value={optionDosen.id}>
@@ -126,8 +127,8 @@ const TambahPengampu= () => {
                 </div>
 
                 <div className="mb-6 ">
-                  <label htmlFor="kode-matkul" className=" block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kode Mata Kuliah</label>
-                  <select value={selectedMatkulId} onChange={(e) => setSelectedMatkulId(e.target.value)} id="kode-matkul" className=" border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                  <label htmlFor="kode-matkul" className=" block mb-2 text-sm font-medium text-gray-900">Kode Mata Kuliah</label>
+                  <select value={selectedMatkulId} onChange={(e) => setSelectedMatkulId(e.target.value)} id="kode-matkul" className=" border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                     <option value="" disabled selected hidden>-Pilih-</option>
                     {dataMatkul.map(optionMatkul =>(
                       <option key={optionMatkul.id} value={optionMatkul.id}>
@@ -142,12 +143,12 @@ const TambahPengampu= () => {
                 </div>
 
                 <div className="mb-6 ">
-                  <label htmlFor="kelas" className=" block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kelas</label>
-                  <select value={selectedKelasId} onChange={(e) => setSelectedKelasId(e.target.value)} id="kelas" className=" border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                  <label htmlFor="kelas" className=" block mb-2 text-sm font-medium text-gray-900">Kelas</label>
+                  <select value={selectedKelasId} onChange={(e) => setSelectedKelasId(e.target.value)} id="kelas" className=" border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                     <option value="" disabled selected hidden>-Pilih-</option>
                     {dataKelas.map(optionKelas =>(
                       <option key={optionKelas.id} value={optionKelas.id}>
-                        {optionKelas.nama}
+                        {optionKelas.nama} - SEMESTER {optionKelas.semester}
                       </option>
                     ))}
                   </select>

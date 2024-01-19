@@ -251,7 +251,7 @@ const TambahReservasiUser = () => {
                 <div className="mb-6 ">
                   <label
                     htmlFor="pengampu"
-                    className=" block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    className=" block mb-2 text-sm font-medium text-gray-900"
                   >
                     Nama Dosen
                   </label>
@@ -259,7 +259,7 @@ const TambahReservasiUser = () => {
                     value={selectedDosenName}
                     onChange={(e) => setSelectedDosenName(e.target.value)}
                     id="pengampu"
-                    className="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    className="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                   >
                     <option value="" disabled selected hidden>
                       -Pilih-
@@ -275,7 +275,7 @@ const TambahReservasiUser = () => {
                 <div className="mb-6 ">
                   <label
                     htmlFor="matakuliah"
-                    className=" block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    className=" block mb-2 text-sm font-medium text-gray-900"
                   >
                     Mata Kuliah
                   </label>
@@ -283,7 +283,7 @@ const TambahReservasiUser = () => {
                     value={selectedMatakuliah}
                     onChange={(e) => setSelectedMatakuliah(e.target.value)}
                     id="matakuliah"
-                    className="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    className="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                   >
                     <option value="" disabled selected hidden>
                       -Pilih-
@@ -299,7 +299,7 @@ const TambahReservasiUser = () => {
                 <div className="mb-6 ">
                   <label
                     htmlFor="kelas"
-                    className=" block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    className=" block mb-2 text-sm font-medium text-gray-900"
                   >
                     Kelas
                   </label>
@@ -307,7 +307,7 @@ const TambahReservasiUser = () => {
                     value={selectedKelas}
                     onChange={(e) => setSelectedKelas(e.target.value)}
                     id="kelas"
-                    className="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    className="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                   >
                     <option value="" disabled selected hidden>
                       -Pilih-
@@ -321,7 +321,7 @@ const TambahReservasiUser = () => {
                 </div>
 
                 <div className='mb-6 '>
-                    <label htmlFor="tanggal" className=" block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tanggal</label>
+                    <label htmlFor="tanggal" className=" block mb-2 text-sm font-medium text-gray-900">Tanggal</label>
                     <input 
                       type="text" 
                       id="date" 
@@ -329,7 +329,7 @@ const TambahReservasiUser = () => {
                       value={showDate}
                       onClick={() => setOpen(!open)}
                       readOnly
-                      className="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
+                      className="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                     />
                     <div ref={refOne} className='absolute mt-[-5px]'>
                       {open &&
@@ -346,8 +346,8 @@ const TambahReservasiUser = () => {
                 </div>
                   
                 <div className="mb-6">
-                  <label htmlFor="jam" className=" block mb-2 text-sm font-medium text-gray-900 dark:text-white">Jam</label>
-                  <select value={selectedJamId} onChange={(e) => setSelectedJamId(e.target.value)} id="jam" className=" border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                  <label htmlFor="jam" className=" block mb-2 text-sm font-medium text-gray-900">Jam</label>
+                  <select value={selectedJamId} onChange={(e) => setSelectedJamId(e.target.value)} id="jam" className=" border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                     <option value="" disabled selected hidden>-Pilih-</option>
                     {dataJam.map(optionJam =>(
                       <option key={optionJam.id} value={optionJam.id}>
@@ -358,8 +358,8 @@ const TambahReservasiUser = () => {
                 </div>
 
                 <div className="mb-6 ">
-                  <label htmlFor="hari" className=" block mb-2 text-sm font-medium text-gray-900 dark:text-white">Ruangan</label>
-                  <select value={selectedRuanganId} onChange={(e) => setSelectedRuanganId(e.target.value)} id="hari" className=" border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                  <label htmlFor="hari" className=" block mb-2 text-sm font-medium text-gray-900">Ruangan</label>
+                  <select value={selectedRuanganId} onChange={(e) => setSelectedRuanganId(e.target.value)} id="hari" className=" border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                     <option value="" disabled selected hidden>-Pilih-</option>
                     {dataRuangan.map(optionRuangan =>(
                       <option key={optionRuangan.id} value={optionRuangan.id}>
