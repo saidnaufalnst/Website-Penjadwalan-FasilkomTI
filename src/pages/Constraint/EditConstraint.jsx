@@ -136,8 +136,8 @@ const EditPengampu= () => {
             <div className="modal-content w-[387px] App">
               <form onSubmit={editConstraintHandler} className="">
                 <div className="mb-6 ">
-                  <label htmlFor="nama-dosen" className=" block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama Dosen</label>
-                  <select value={selectedDosenId} onChange={(e) => setSelectedDosenId(e.target.value)} id="nama-dosen" className=" border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                  <label htmlFor="nama-dosen" className=" block mb-2 text-sm font-medium text-gray-900 ">Nama Dosen</label>
+                  <select value={selectedDosenId} onChange={(e) => setSelectedDosenId(e.target.value)} id="nama-dosen" className=" border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                     <option value={showDosen.id} selected hidden>{showDosen.name}</option>
                     {dataDosen.map(optionDosen =>(
                       <option key={optionDosen.id} value={optionDosen.id}>
@@ -148,8 +148,8 @@ const EditPengampu= () => {
                 </div>
 
                 <div className="mb-6 ">
-                  <label htmlFor="kode-matkul" className=" block mb-2 text-sm font-medium text-gray-900 dark:text-white">Jam</label>
-                  <select value={selectedJamId} onChange={(e) => setSelectedJamId(e.target.value)} id="kode-matkul" className=" border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                  <label htmlFor="kode-matkul" className=" block mb-2 text-sm font-medium text-gray-900 ">Jam</label>
+                  <select value={selectedJamId} onChange={(e) => setSelectedJamId(e.target.value)} id="kode-matkul" className=" border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                     <option value={showJam.id} selected hidden>{showJam.awal} - {showJam.akhir}</option>
                     {dataJam.map(optionJam =>(
                       <option key={optionJam.id} value={optionJam.id}>
@@ -160,8 +160,8 @@ const EditPengampu= () => {
                 </div>
 
                 <div className="mb-6 ">
-                  <label htmlFor="kelas" className=" block mb-2 text-sm font-medium text-gray-900 dark:text-white">Hari</label>
-                  <select value={selectedHariId} onChange={(e) => setSelectedHariId(e.target.value)} id="kelas" className=" border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                  <label htmlFor="kelas" className=" block mb-2 text-sm font-medium text-gray-900 ">Hari</label>
+                  <select value={selectedHariId} onChange={(e) => setSelectedHariId(e.target.value)} id="kelas" className=" border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                     <option value={showHari.id} selected hidden>{showHari.nama}</option>
                     {dataHari.map(optionHari =>(
                       <option key={optionHari.id} value={optionHari.id}>

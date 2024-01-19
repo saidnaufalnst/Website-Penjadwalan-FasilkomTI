@@ -37,7 +37,7 @@ const Register = () => {
 
   return (
     <div className="flex justify-center h-screen items-center">
-      <div className="App w-[460px] py-6 px-8 bg-white border border-gray-200 rounded-md shadow dark:bg-gray-800 dark:border-gray-700">
+      <div className="App w-[460px] py-6 px-8 bg-white border border-gray-200 rounded-md shadow ">
         <span className="text-center">
           <h1 className="text-3xl font-semibold mt-6 mb-8">Daftar</h1>
         </span>
@@ -45,7 +45,7 @@ const Register = () => {
         <form onSubmit={registerHandler}>
           {/* nama */}
           <div className="mb-6 ">
-            <label htmlFor="name" className=" block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama</label>
+            <label htmlFor="name" className=" block mb-2 text-sm font-medium text-gray-900 ">Nama</label>
             <input 
               name="name"
               type="text" 
@@ -53,12 +53,12 @@ const Register = () => {
               value={name}
               id="name" 
               autoComplete="off" 
-              className="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+              className="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " required />
           </div>
 
           {/* usernama */}
           <div className="mb-6 ">
-            <label htmlFor="username" className=" block mb-2 text-sm font-medium text-gray-900 dark:text-white">Username</label>
+            <label htmlFor="username" className=" block mb-2 text-sm font-medium text-gray-900 ">Username</label>
             <input 
               name="username"
               type="text" 
@@ -66,12 +66,12 @@ const Register = () => {
               value={username}
               id="username" 
               autoComplete="off" 
-              className="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+              className="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " required />
           </div>
 
           {/* username */}
           <div className="mb-6 ">
-            <label htmlFor="email" className=" block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
+            <label htmlFor="email" className=" block mb-2 text-sm font-medium text-gray-900 ">Email</label>
             <input 
              name="email"
              type="text" 
@@ -79,14 +79,14 @@ const Register = () => {
              value={email}
              id="email" 
              autoComplete="off" 
-              className="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+              className="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " required />
           </div>
           
           
           <div className="flex justify-between gap-9">
             {/* password */}
             <div className="mb-6">
-              <label htmlFor="password" className=" block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
+              <label htmlFor="password" className=" block mb-2 text-sm font-medium text-gray-900 ">Password</label>
               <input 
                 name="password"
                 type="password" 
@@ -94,12 +94,12 @@ const Register = () => {
                 value={password}
                 id="password" 
                 autoComplete="off" 
-                className="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+                className="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " required />
             </div>
 
             {/* confirmpassword */}
             <div className=" mb-6">
-              <label htmlFor="confirm_password" className=" block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+              <label htmlFor="confirm_password" className=" block mb-2 text-sm font-medium text-gray-900 ">
                 Confirm Password
                 <FontAwesomeIcon
                 icon={faCheck}
@@ -115,21 +115,21 @@ const Register = () => {
                 value={confirm_password}
                 id="confirm_password" 
                 autoComplete="off" 
-                className={`shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light 
+                className={`shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  
                 ${ !passwordMatch ? 'border-red-500' : '' }`} required />
             </div>
           </div>
 
           <div className="flex items-center mb-6">
             <div className="flex items-center h-5">
-              <input id="terms" type="checkbox" value="" className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800" required />
+              <input id="terms" type="checkbox" value="" className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 " required />
             </div>
-            <label htmlFor="terms" className=" ml-2 text-justify text-sm font-medium text-gray-900 dark:text-gray-300">Saya setuju dengan <a href="#" className="text-blue-600 hover:underline dark:text-blue-500">Syarat & Ketentuan</a> dan <a href="#" className="text-blue-600 hover:underline dark:text-blue-500">Kebijakan Privasi</a></label>
+            <label htmlFor="terms" className=" ml-2 text-justify text-sm font-medium text-gray-900 ">Saya setuju dengan <a href="#" className="text-blue-600 hover:underline">Syarat & Ketentuan</a> dan <a href="#" className="text-blue-600 hover:underline ">Kebijakan Privasi</a></label>
           </div>
 
           <button 
             type="submit"
-            className=" w-full text-white bg-[#03965C] hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
+            className=" w-full text-white bg-[#03965C] hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center ">
               Daftar
           </button>
         </form>

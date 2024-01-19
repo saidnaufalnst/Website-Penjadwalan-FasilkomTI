@@ -91,7 +91,7 @@ const Pengampu = () => {
                     <form>   
                         <div className="relative justify-start">
                             <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                                <svg className="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                                <svg className="w-4 h-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                                     <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
                                 </svg>
                             </div>
@@ -119,11 +119,14 @@ const Pengampu = () => {
                                         <th className="py-5 px-6 w-[150px] font-medium">
                                             Kode
                                         </th>
-                                        <th className="py-5 px-6 w-[350px] font-medium">
+                                        <th className="py-5 px-6 w-[300px] font-medium">
                                             Mata Kuliah
                                         </th>
-                                        <th className="py-5 px-6 w-[150px] font-medium">
+                                        <th className="py-5 px-6 w-[100px] font-medium">
                                             Kelas
+                                        </th>
+                                        <th className="py-5 px-6 w-[150px] font-medium">
+                                            Semester
                                         </th>
                                         <th className="py-5 px-[52px] w-[150px] text-right font-medium">
                                             Aksi
@@ -144,6 +147,9 @@ const Pengampu = () => {
                                             </td>
                                             <td className="py-5">
                                                 {item.kelas.nama}
+                                            </td>
+                                            <td className="py-5">
+                                                {item.kelas.semester}
                                             </td>
                                             <td className="flex justify-end gap-3 px-10 py-5">
                                                 <div className='flex items-center'>

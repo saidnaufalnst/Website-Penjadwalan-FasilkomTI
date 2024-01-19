@@ -87,25 +87,25 @@ const EditDosen = () => {
           <div className="modal-content w-[387px] App">
             <form onSubmit={updateDosenHandler}>
               <div className="mb-6 ">
-                <label htmlFor="nama-dosen" className=" block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama</label>
+                <label htmlFor="nama-dosen" className=" block mb-2 text-sm font-medium text-gray-900 ">Nama</label>
                 <input 
                   type="text" 
                   id="nama-dosen" 
                   autoComplete='off'
                   value={namaDosen} 
                   onChange={(e) => setNamaDosen(e.target.value)} 
-                  className="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+                  className="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " required />
               </div>
 
               <div className="mb-6 ">
-                <label htmlFor="nip-dosen" className=" block mb-2 text-sm font-medium text-gray-900 dark:text-white">NIP</label>
+                <label htmlFor="nip-dosen" className=" block mb-2 text-sm font-medium text-gray-900 ">NIP</label>
                 <input 
                   type="text" 
                   id="nip-dosen" 
                   autoComplete='off'
                   value={nipDosen} 
                   onChange={(e) => setNipDosen(e.target.value)} 
-                  className="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+                  className="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " required />
               </div>
 
               <div className="flex justify-center gap-1">
