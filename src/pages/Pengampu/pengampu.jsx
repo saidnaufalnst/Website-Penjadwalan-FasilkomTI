@@ -119,7 +119,7 @@ const Pengampu = () => {
                                         <th className="py-5 px-6 w-[150px] font-medium">
                                             Kode
                                         </th>
-                                        <th className="py-5 px-6 w-[300px] font-medium">
+                                        <th className="py-5 px-6 w-[250px] font-medium">
                                             Mata Kuliah
                                         </th>
                                         <th className="py-5 px-6 w-[100px] font-medium">

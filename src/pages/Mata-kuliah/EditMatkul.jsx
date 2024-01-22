@@ -147,6 +147,7 @@ const EditMatkul = () => {
                   <option value={"PEMINATAN"}>PEMINATAN</option>
                   <option value={"MKWK"}>MKWK</option>
                   <option value={"MKWU"}>MKWU</option>
+                  <option value={"TA"}>TA</option>
                 </select>
               </div>
 

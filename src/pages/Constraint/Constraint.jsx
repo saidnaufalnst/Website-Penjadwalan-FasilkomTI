@@ -75,7 +75,7 @@ const Constraint = () => {
             <div className="w-[90%]">
                 <div className="mt-5 mb-10">
                     <span className="text-[#202020] font-bold text-3xl">
-                        Constraint
+                        CONSTRAINT
                     </span>
                 </div>
 
@@ -108,13 +108,13 @@ const Constraint = () => {
                                         <th className="py-5 px-6 w-[400px] font-medium">
                                             Dosen
                                         </th>
-                                        <th className="py-5 px-6 w-[300px] font-medium">
+                                        <th className="py-5 px-6 w-[200px] font-medium">
                                             Jam
                                         </th>
-                                        <th className="py-5 px-6 w-[300px] font-medium">
+                                        <th className="py-5 px-6 w-[200px] font-medium">
                                             Hari
                                         </th>
-                                        <th className="py-5 px-[52px] w-[350px] text-right font-medium">
+                                        <th className="py-5 px-[52px] w-[200px] text-right font-medium">
                                             Aksi
                                         </th>
                                     </tr>
