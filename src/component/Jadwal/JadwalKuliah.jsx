@@ -8,7 +8,6 @@ import ChartDataLabels from 'chartjs-plugin-datalabels';
 import axios from "axios";
 import { useLocation } from "react-router-dom";
 import ToolbarFooter from "../Bar&Navigation/ToolbarFooter";
-import ButtonPrint from "../Button/ButtonPrint";
 
 Chart.register(
   BarElement, CategoryScale, LinearScale, TimeScale, ChartDataLabels
@@ -264,9 +263,8 @@ const JadwalKuliah = ({ currentDate }) => {
 
   return (
     <div className="w-full h-full">
-      <div className="w-full h-full flex justify-center mb-[80px]">
-        <div className="w-[90%] h-full mt-3">
-          <ButtonPrint/>
+      <div className="w-full h-full flex justify-center">
+        <div className="w-[90%] h-full">
           <div className="mt-[-20px] h-full z-0">
             <Bar data={chartData} options={options}/>
           </div>

@@ -7,6 +7,7 @@ import ButtonJadwal from '../Button/ButtonJadwal';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import ReactModal from 'react-modal';
+import ButtonPrint from '../Button/ButtonPrint';
 
 
 const Kalender = ({ currentDate, onDateChange }) => {
@@ -184,6 +185,9 @@ const handleProses = () => {
           <span className="text-[#03965C] text-center text-sm px-2 font-normal">
             {format(currentDate, 'EEEE', { locale: id })}
           </span>
+        </div>
+        <div className='mb-2'>
+          <ButtonPrint/>
         </div>
       </div>
 
