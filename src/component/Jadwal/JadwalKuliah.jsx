@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Chart, BarElement, CategoryScale, LinearScale, Tooltip, TimeScale } from "chart.js";
+import { Chart, BarElement, CategoryScale, LinearScale, TimeScale } from "chart.js";
 import { format } from 'date-fns';
 import { id } from 'date-fns/locale';
 import 'chartjs-adapter-date-fns';
@@ -8,9 +8,10 @@ import ChartDataLabels from 'chartjs-plugin-datalabels';
 import axios from "axios";
 import { useLocation } from "react-router-dom";
 import ToolbarFooter from "../Bar&Navigation/ToolbarFooter";
+import ButtonPrint from "../Button/ButtonPrint";
 
 Chart.register(
-  BarElement, CategoryScale, LinearScale, Tooltip, TimeScale, ChartDataLabels
+  BarElement, CategoryScale, LinearScale, TimeScale, ChartDataLabels
 );
 
 const getBackgroundColor = (semester) => {
@@ -263,9 +264,12 @@ const JadwalKuliah = ({ currentDate }) => {
 
   return (
     <div className="w-full h-full">
-      <div className="w-full h-full flex justify-center mb-5">
-        <div className="w-[90%] h-full">
-          <Bar data={chartData} options={options}/>
+      <div className="w-full h-full flex justify-center mb-[80px]">
+        <div className="w-[90%] h-full mt-3">
+          <ButtonPrint/>
+          <div className="mt-[-20px] h-full z-0">
+            <Bar data={chartData} options={options}/>
+          </div>
         </div>
       </div>
       <div className='z-50 sticky bottom-0'>

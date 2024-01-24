@@ -46,7 +46,7 @@ const TambahDosen= () => {
     } catch (error) {
       Swal.fire({
         title: "Gagal!",
-        text: error,
+        text: error.data.message,
         icon: "error",
         showConfirmButton: false,
         timer: 1500,
