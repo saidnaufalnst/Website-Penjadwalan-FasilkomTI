@@ -55,7 +55,7 @@ const TambahMatkul= () => {
     } catch (error) {
       Swal.fire({
         title: "Gagal!",
-        text: error.data.message,
+        text: error.response.data.message,
         icon: "error",
         showConfirmButton: false,
         timer: 1500,
