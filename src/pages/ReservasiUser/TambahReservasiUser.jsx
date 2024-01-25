@@ -140,7 +140,7 @@ const TambahReservasiUser = () => {
     } catch (error) {
       Swal.fire({
         title: 'Gagal!',
-        text: error.data.message,
+        text: error.response.data.message,
         icon: 'error',
         showConfirmButton: false,
         timer: 1500,
@@ -220,7 +220,6 @@ const TambahReservasiUser = () => {
   }, [selectedHari, dataHari]);
 
   const handleDateChange = (date) => {
-    console.log(format(date, 'yyyy-MM-dd'));
     setSelectedDate(format(date, 'yyyy-MM-dd'))
     setShowDate(format(date, 'EEEE, dd MMMM yyyy', { locale: id }))
     setSelectedHari(format(date, 'EEEE', { locale: id }))

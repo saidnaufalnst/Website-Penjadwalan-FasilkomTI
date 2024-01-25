@@ -64,7 +64,7 @@ const SideNavbar = () => {
         } catch (error) {
             Swal.fire({
                 title: "Gagal!",
-                text: error,
+                text: error.response.data.message,
                 icon: "error",
                 showConfirmButton: false,
                 timer: 1500,
