@@ -13,24 +13,28 @@ Chart.register(
   BarElement, CategoryScale, LinearScale, TimeScale, ChartDataLabels
 );
 
-const getBackgroundColor = (semester) => {
-  switch (semester) {
-    case 1:
-      return '#FF8CA7';
-    case 2:
-      return '#FF8CA7';
-    case 3:
-      return '#FFB97F';
-    case 4:
-      return '#FFB97F';
-    case 5:
-      return '#87D4FF';
-    case 6:
-      return '#87D4FF';
-    case 7:
-      return '#B3FF98';
-    default:
-      return '#B3FF98';
+const getBackgroundColor = (semester, reservasi) => {
+  if (reservasi){
+    return '#C6C6C6';
+  } else {
+    switch (semester) {
+      case 1:
+        return '#FF8CA7';
+      case 2:
+        return '#FF8CA7';
+      case 3:
+        return '#FFB97F';
+      case 4:
+        return '#FFB97F';
+      case 5:
+        return '#87D4FF';
+      case 6:
+        return '#87D4FF';
+      case 7:
+        return '#B3FF98';
+      default:
+        return '#B3FF98';
+    }
   }
 };
 
@@ -126,18 +130,48 @@ const JadwalKuliah = ({ currentDate }) => {
   };
 
   const getColorAndSemester = (jadwal) => {
-    const uniqueSemesters = [...new Set(jadwal.map(item => item.pengampu.matakuliah.semester))];
-    
-    const colorAndSemester = uniqueSemesters.map((semester, index) => ({
-      semester,
-      backgroundColor: getBackgroundColor(semester),
-    }));
+    const processedSemesters = new Set();
+    const colorAndSemesterArray = [];
+    let representativeReservationAdded = false;
+  
+    jadwal.forEach(item => {
+      const semester = item.pengampu.matakuliah.semester;
+      const hasReservation = item.reservasi;
+  
+      if (hasReservation && !representativeReservationAdded) {
+        colorAndSemesterArray.push({
+          semester: 'Reservasi',
+          backgroundColor: getBackgroundColor(semester, hasReservation),
+          reservations: hasReservation,
+        });
+  
+        representativeReservationAdded = true;
+      }
+  
+      if (!processedSemesters.has(semester) && !hasReservation) {
+        colorAndSemesterArray.push({
+          semester,
+          backgroundColor: getBackgroundColor(semester, hasReservation),
+          reservations: hasReservation,
+        });
+  
+        processedSemesters.add(semester);
+      }
+    });
 
-    colorAndSemester.sort((a, b) => a.semester - b.semester);
+    colorAndSemesterArray.sort((a, b) => {
+      if (a.semester === 'Reservasi') return 1;
+      if (b.semester === 'Reservasi') return -1;
+      return a.semester - b.semester;
+    });
   
-    return colorAndSemester;
-  };  
+    return colorAndSemesterArray;
+  };
   
+  
+  
+  
+
 
   const chartData = {
     type: 'bar',
@@ -158,7 +192,7 @@ const JadwalKuliah = ({ currentDate }) => {
           },
         };
       }),
-      backgroundColor: jadwal.map(item => getBackgroundColor(item.pengampu.matakuliah.semester)),
+      backgroundColor: jadwal.map(item => getBackgroundColor(item.pengampu.matakuliah.semester, item.reservasi)),
       borderColor: 'rgba(0, 0, 0, 0)',
       barPercentage: 1.1,
       borderRadius: 8,
