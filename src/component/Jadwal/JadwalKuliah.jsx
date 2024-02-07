@@ -167,11 +167,6 @@ const JadwalKuliah = ({ currentDate }) => {
   
     return colorAndSemesterArray;
   };
-  
-  
-  
-  
-
 
   const chartData = {
     type: 'bar',
